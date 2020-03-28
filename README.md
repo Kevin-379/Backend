@@ -8,4 +8,5 @@ Notes:
   1) Website is not fully functional
   2) username: admin
      password: admin
-  3) if admin is not present, run 'python manage.py createsuperuser'
+  3) If admin is not present, run 'python manage.py createsuperuser'
+  4) A .env file containing my SECRET_KEY, email, password has been included. If you want to use your own email, see .env-example for format and replace my .env
