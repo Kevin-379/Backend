@@ -1,0 +1,18 @@
+# in py file
+post = [
+    {
+        'author': 'Kevin',
+        'content': 'Very Good',
+    }
+]
+
+# in function
+context = {
+    'post': post,
+}
+
+# in html
+{% for p in post %}
+    <h2>{{ p.content }}</h2>
+    <p>By {{ p.author }}</p>
+{% endfor %}

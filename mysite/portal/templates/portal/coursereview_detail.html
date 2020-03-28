@@ -1,0 +1,17 @@
+{% extends "portal/base.html" %}
+{% block head%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% block title %}Portal Home{% endblock %}
+{% endblock %}
+{% block content %}
+    <h2>{{ object.code }}</h2>
+    <p>{{ object.comments }}</p>
+    <p><a href="{% url 'user_reviews' object.author.username %}">By {{ object.author }}</a></p>
+    <p>{{ object.time|date:"d F, y" }}</p>
+    <p>
+        {% if object.author == user %}
+            <a href="{% url 'course_review_update' object.id %}">Update</a>
+            <a href="{% url 'course_review_delete' object.id %}">Delete</a>
+        {% endif %}
+    </p>
+{% endblock %}

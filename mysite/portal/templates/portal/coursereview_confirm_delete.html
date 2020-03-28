@@ -1,0 +1,15 @@
+{% extends "portal/base.html" %}
+{% block title %}Delete A Review{% endblock %}
+{% block content %}
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Delete Post</legend>
+                <h2>Are you sure? "{{ object.code }}"</h2>
+            </fieldset>
+        <button type="submit">Yes, DELETE</button>
+        <a href="{% url 'course_review_detail' object.id %}">No, CANCEL</a>
+        </form>
+    </div>
+{% endblock %}

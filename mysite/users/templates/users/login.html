@@ -1,0 +1,23 @@
+{% extends "portal/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Log In{% endblock %}
+{% block content %}
+    <div style="width: auto;">
+        <form method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Login</legend>
+                {{ form|crispy }}
+            </fieldset>
+        <button type="submit" class="btn btn-secondary">Login</button>
+        </form>
+        <div class="btn-group-vertical">
+            <button type="button" class="btn btn-link">
+                <small><a href="{% url 'register' %}">Don't have an account? Register Now</a></small>
+            </button>
+            <button type="button" class="btn btn-link">
+                <small><a href="{% url 'password_reset' %}">Forgot Password?</a></small>
+            </button>
+        </div>
+    </div>
+{% endblock %}

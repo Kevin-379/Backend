@@ -1,0 +1,21 @@
+{% extends "portal/base.html" %}
+{% block title %}Professor Review{% endblock %}
+{% block content %}
+    <div class="card">
+        <h2 class="card-header">{{ object.name }}</h2>
+        <div class="card-body">
+            <p class="card-subtitle">{{ object.courses_taught|upper }}</p>
+            <p>{{ object.rating }} out of 5</p>
+            <p class="text-primary">Difficulty: </p><p>{{ object.difficulty }}</p>
+            <p>{{ object.comments }}</p>
+            <p><a href="{% url 'user_reviews' object.author.username %}">By {{ object.author }}</a></p>
+            <p>{{ object.time|date:"d F, Y" }}</p>
+            <p>
+                {% if object.author == user %}
+                    <a class="btn btn-primary" href="{% url 'prof_review_update' object.id %}">Update</a>
+                    <a class="btn btn-danger" href="{% url 'prof_review_delete' object.id %}">Delete</a>
+                {% endif %}
+            </p>
+        </div>
+    </div>
+{% endblock %}

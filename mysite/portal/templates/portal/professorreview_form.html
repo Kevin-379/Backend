@@ -1,0 +1,26 @@
+{% extends "portal/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Create A Professor Review{% endblock %}
+{% block content %}
+    <div class="alert alert-info">
+        Please enter name of professor as FirstName LastName
+    </div>
+    <div class="alert alert-info">
+        If you want to enter multiple Courses taught, seperate with commas.
+        <br>
+        <small>Ex: mtl100, mtl101, mtl102</small>
+    </div>
+    <div class="alert alert-info">
+        Please enter rating between 0 and 5
+    </div>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend>New Professor Review</legend>
+                {{ form|crispy }}
+            </fieldset>
+        <button type="submit">Post</button>
+        </form>
+    </div>
+{% endblock %}

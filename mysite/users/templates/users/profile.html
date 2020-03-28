@@ -1,0 +1,21 @@
+{% extends "portal/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+    <div class="card">
+        <img class="card-img-top" style="width: 200px; align-self: center;" src='{{ user.profile.profile_pic.url }}' />
+        <h3 class="card-header">{{ user.username }}</h3>
+        
+        <div class="card-body">
+            <h4>{{ user.email }}</h4>
+            <div type="button" class="btn-group-vertical">
+            	<button class="btn btn-link">
+                    <a href="{% url 'update' %}">Update your profile</a>
+                </button>
+                <button class="btn btn-link">
+                    <a href="{% url 'password_reset' %}">Reset Password</a>
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

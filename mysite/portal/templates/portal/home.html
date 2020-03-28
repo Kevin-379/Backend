@@ -1,0 +1,63 @@
+{% extends "portal/base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+    <div class="card border-info" style="margin-top: 20%; width: auto; padding-bottom: 10px">
+        <div style="text-align: center;">
+            <h1 class="card-title text-primary">WHAT ARE YOU LOOKING FOR?</h1>
+            <br>
+            <a href="#" class="btn btn-outline-primary btn-lg">PROFESSORS</a>
+            <a href="#" class="btn btn-outline-primary btn-lg">COURSES</a>
+        </div>
+    </div>
+
+<!--
+    <div class="container" style="background-color: lightblue; margin-top: 20px">
+        <h1>Recent Posts</h1>
+        {% for post in posts %}
+            <div class="card">
+                <span>
+                <img class="rounded-circle" src="{{ post.author.profile.profile_pic.url }}" style="margin: auto; display: inline; float: left;">
+                <h2 class="card-title" style="display: inline"><a href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+                <h6 class="card-subtitle mb-2 text-muted">By <a href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a></h6>
+                <p class="card-text">{{ post.content }}</p>
+                <p>{{post.time|date:"d F, y"}}</p>
+                </span>
+            </div>
+        {% endfor %}
+
+        {% if is_paginated %}
+            {% if page_obj.number > 3 %}
+                <a href="?page=1">1...</a>
+                {% for num in page_obj.paginator.page_range %}
+                    {% if num <= page_obj.number and num >= page_obj.number|add:'-2' %}
+                        <a href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                {% for num in page_obj.paginator.page_range %}
+                    {% if num <= page_obj.number %}
+                        <a href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            {% if page_obj.number <= page_obj.paginator.num_pages|add:'-3' %}
+                {% for num in page_obj.paginator.page_range %}
+                    {% if num > page_obj.number and num <= page_obj.number|add:'2' %}
+                        <a href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+                <a href="?page={{ page_obj.paginator.num_pages }}">...{{ page_obj.paginator.num_pages }}</a>
+            {% else %}
+
+                {% for num in page_obj.paginator.page_range %}
+                    {% if num > page_obj.number %}
+                        <a href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+    </div>
+-->
+{% endblock %}

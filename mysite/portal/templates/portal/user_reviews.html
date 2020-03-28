@@ -1,0 +1,45 @@
+{% extends "portal/base.html" %}
+{% block title %}{{ view.kwargs.username }}'s Posts{% endblock %}
+{% block content %}
+    <h1>Posts by {{ view.kwargs.username }}</h1>
+    <p>page_obj.paginator.count</p>
+    {% for review in prof_review %}
+        <h2><a href="{% url 'prof_review_detail' review.id %}">{{ review.name }}</a></h2>
+        <p>{{ review.comments }}</p>
+        <p><a href="{% url 'user_reviews' review.author.username %}">By {{ review.author }}</a></a></p>
+        <p>{{review.time|date:"d F, y"}}</p>
+    {% endfor %}
+
+    {% if is_paginated %}
+        {% if page_obj.number > 3 %}
+            <a href="?page=1">1...</a>
+            {% for num in page_obj.paginator.page_range %}
+                {% if num <= page_obj.number and num >= page_obj.number|add:'-2' %}
+                    <a href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {% for num in page_obj.paginator.page_range %}
+                {% if num <= page_obj.number %}
+                    <a href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        {% if page_obj.number <= page_obj.paginator.num_pages|add:'-3' %}
+            {% for num in page_obj.paginator.page_range %}
+                {% if num > page_obj.number and num <= page_obj.number|add:'2' %}
+                    <a href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+            <a href="?page={{ page_obj.paginator.num_pages }}">...{{ page_obj.paginator.num_pages }}</a>
+        {% else %}
+
+            {% for num in page_obj.paginator.page_range %}
+                {% if num > page_obj.number %}
+                    <a href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+{% endblock %}
