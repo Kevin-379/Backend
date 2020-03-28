@@ -8,4 +8,4 @@ Notes:
   1) Website is not fully functional
   2) username: admin
      password: admin
-  3) if admin is not present, run python manage.py createsuperuser
+  3) if admin is not present, run 'python manage.py createsuperuser'
