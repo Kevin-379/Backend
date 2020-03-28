@@ -9,4 +9,4 @@ Notes:
   2) username: admin
      password: admin
   3) If admin is not present, run 'python manage.py createsuperuser'
-  4) A .env file containing my SECRET_KEY, email, password has been included. If you want to use your own email, see .env-example for format and replace my .env
+  4) A .env file containing my SECRET_KEY, email, password has been included (mysite/mysite/.env). If you want to use your own email, see .env-example for format and replace my .env
