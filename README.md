@@ -11,6 +11,7 @@ Setup:
 Notes:
   1) Website is not fully functional
   2) A .env file containing my SECRET_KEY, email, password has been included (mysite/mysite/.env). If you want to use your own email, see .env-example for format and replace my .env
-  3) username: useri
+  3) The following users were not working on a different machine. If they are not present (can check after logging in admin page and going to profiles) you can register.
+     username: useri
      password: password@i ,(i=1, 2, 3)
   4) admin route: localhost:8000/admin
